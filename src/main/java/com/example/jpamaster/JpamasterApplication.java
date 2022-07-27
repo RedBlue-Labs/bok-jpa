@@ -15,15 +15,14 @@ import javax.persistence.Persistence;
 public class JpamasterApplication {
 
     public static void main(String[] args) {
-
+        //SpringApplication.run(JpamasterApplication.class, args);
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpamaster");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
-
+        entityTransaction.begin();
         Board board = new Board();
         entityManager.persist(board);
-
-        SpringApplication.run(JpamasterApplication.class, args);
+        entityTransaction.commit();
     }
 
 }
