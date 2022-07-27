@@ -2,7 +2,6 @@ package com.example.jpamaster;
 
 import com.example.jpamaster.member.domain.Board;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.persistence.EntityManager;
@@ -16,6 +15,7 @@ public class JpamasterApplication {
 
     public static void main(String[] args) {
         //SpringApplication.run(JpamasterApplication.class, args);
+        //
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpamaster");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
