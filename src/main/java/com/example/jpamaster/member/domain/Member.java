@@ -11,17 +11,15 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-//@Table(name = "MEMBER", uniqueConstraints = {
-//        @UniqueConstraint(
-//                name = "NAME_AGE_UNIQUE",
-//                columnNames = {"name", "age"}
-//        )
-//})
-@Table(name = "MEMBER")
+@TableGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        table = "MY_SEQUENCE",
+        pkColumnValue = "MEMBER_SEQ"
+)
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
     @Column(name = "id")
     private Long id;
 

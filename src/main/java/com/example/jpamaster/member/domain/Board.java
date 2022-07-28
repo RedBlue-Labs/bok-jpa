@@ -8,14 +8,15 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@SequenceGenerator(
+@TableGenerator(
         name = "BOARD_SEQ_GENERATOR",
-        sequenceName = "BOARD_SEQ",
+        table = "MY_SEQUENCE",
+        pkColumnValue = "BOARD_SEQ",
         allocationSize = 1
 )
 public class Board {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BOARD_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "BOARD_SEQ_GENERATOR")
     private Long id;
 }
